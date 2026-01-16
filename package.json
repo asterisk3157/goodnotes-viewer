@@ -1,0 +1,111 @@
+{
+  "name": "goodnotes-viewer",
+  "displayName": "Goodnotes Viewer",
+  "description": "View Goodnotes PDFs from local folder in VS Code",
+  "version": "1.0.0",
+  "publisher": "asterisk3157",
+  "icon": "resources/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asterisk3157/goodnotes-viewer"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "goodnotes",
+          "title": "GoodNotes",
+          "icon": "resources/goodnotes.svg"
+        }
+      ]
+    },
+    "views": {
+      "goodnotes": [
+        {
+          "id": "goodnotesExplorer",
+          "name": "Notes"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "goodnotes.setFolder",
+        "title": "GoodNotes: Set Folder"
+      },
+      {
+        "command": "goodnotes.refresh",
+        "title": "GoodNotes: Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "goodnotes.clearSettings",
+        "title": "GoodNotes: Clear Settings"
+      },
+      {
+        "command": "goodnotes.openPdf",
+        "title": "Open PDF"
+      },
+      {
+        "command": "goodnotes.copyFile",
+        "title": "ファイルをコピー"
+      },
+      {
+        "command": "goodnotes.copyPath",
+        "title": "パスをコピー"
+      },
+      {
+        "command": "goodnotes.saveAs",
+        "title": "名前を付けて保存..."
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "goodnotes.refresh",
+          "when": "view == goodnotesExplorer",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "goodnotes.copyFile",
+          "when": "view == goodnotesExplorer && viewItem == pdf",
+          "group": "1_copy@1"
+        },
+        {
+          "command": "goodnotes.copyPath",
+          "when": "view == goodnotesExplorer && viewItem == pdf",
+          "group": "1_copy@2"
+        },
+        {
+          "command": "goodnotes.saveAs",
+          "when": "view == goodnotesExplorer && viewItem == pdf",
+          "group": "2_save"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "npx vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0"
+  }
+}

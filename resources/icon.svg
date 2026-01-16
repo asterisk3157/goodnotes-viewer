@@ -1,0 +1,36 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- ペン周囲をくり抜くマスク -->
+    <mask id="notebookMask">
+      <rect x="0" y="0" width="128" height="128" fill="white"/>
+      <g transform="translate(105, 48) rotate(45)">
+        <rect x="-3" y="-3" width="16" height="50" rx="2" fill="black"/>
+        <polygon points="-3,44 5,58 13,44" fill="black"/>
+      </g>
+    </mask>
+  </defs>
+
+  <!-- 背景（角丸・青系） -->
+  <rect x="4" y="4" width="120" height="120" rx="20" fill="#4A90D9"/>
+
+  <!-- ノートブック本体（ペン部分をくり抜き） -->
+  <rect x="28" y="18" width="72" height="92" rx="6" fill="white" mask="url(#notebookMask)"/>
+
+  <!-- バインダーリング -->
+  <rect x="18" y="30" width="16" height="8" rx="2" fill="#E8E8E8"/>
+  <rect x="18" y="48" width="16" height="8" rx="2" fill="#E8E8E8"/>
+  <rect x="18" y="66" width="16" height="8" rx="2" fill="#E8E8E8"/>
+  <rect x="18" y="84" width="16" height="8" rx="2" fill="#E8E8E8"/>
+
+  <!-- ページライン -->
+  <line x1="40" y1="38" x2="88" y2="38" stroke="#DDDDDD" stroke-width="3" stroke-linecap="round"/>
+  <line x1="40" y1="52" x2="88" y2="52" stroke="#DDDDDD" stroke-width="3" stroke-linecap="round"/>
+  <line x1="40" y1="66" x2="88" y2="66" stroke="#DDDDDD" stroke-width="3" stroke-linecap="round"/>
+  <line x1="40" y1="80" x2="72" y2="80" stroke="#DDDDDD" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- ペン（右上から左下向き・書く姿勢） -->
+  <g transform="translate(105, 48) rotate(45)">
+    <rect x="0" y="0" width="10" height="40" rx="2" fill="#FF9500"/>
+    <polygon points="0,40 5,52 10,40" fill="#333333"/>
+  </g>
+</svg>
